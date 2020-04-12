@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -14,5 +16,11 @@ function Book(title, author, pages, read){
     }
 }
 
-theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
-console.log(theHobbit.info())
+function addBookToLibrary() {
+    // code to add a new book by the user
+}
+
+
+function render() {
+    // code to loop through myLibrary and display each item on page
+}
