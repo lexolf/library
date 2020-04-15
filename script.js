@@ -16,7 +16,7 @@ function Book(title, author, pages, read){
     }
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, pages, read) {
     // code to add a new book by the user
 }
 
