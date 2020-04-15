@@ -55,6 +55,7 @@
 .book__title--form {
     width: 100%;
     height: 20vh;
+    color: rgba(0,0,0,0.9);
     background: rgba(0,0,0,0.05);
     border: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -72,6 +73,7 @@
 
 .book__author--form {
     background: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.9);
     border: none;
     font-weight: 800;
     margin-bottom: 4vh;
@@ -87,7 +89,7 @@
     box-shadow: inset 0 0 5px;
 }
 
-.book__status--unread {
+.book__status--not-read {
     background: rgba(100,0,0,0.2);
 }
 
@@ -116,6 +118,7 @@
 .book__pages--form {
     min-width: 0;
     flex: 3 0 0;
+    color: rgba(0,0,0,1);
     background: rgba(107, 107, 107, 0);
     border: none;
     border-right: solid 0.5px rgba(0,0,0,0.2);
@@ -137,16 +140,23 @@
     cursor: pointer;
 }
 
+.book__isread:hover {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+}
+
 .book__isread--form {
     flex: 7 0 0;
     background: rgba(0,0,0,0);
     border: none;
     font-size: 2vh;
+    background: linear-gradient(rgba(20, 0, 77, 0.1), rgba(14, 0, 65, 0.4));
+    color: rgba(0,0,0,0.7);
 }
 
-.book__isread:hover {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+.book__isread--form:hover {
+    background: linear-gradient(rgba(120, 100, 177, 0.1), rgba(114, 100, 165, 0.4));
 }
+
 
 .book__isread--no {
     box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.8), 0 3px 2px 0 rgba(0, 0, 0, 0.1);

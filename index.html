@@ -11,8 +11,8 @@
         <h1 class="header__title">Library</h1>
         <h2 class="header__subtitle">of all the books you have</h2>
     </div>
-    <div class="library">
-        <div class="book book--read">
+    <div id="library" class="library">
+        <!-- <div class="book book--read">
             <div class="book__header">
                 <h3 class="book__title">The Hobbit</h3>
             </div>
@@ -27,7 +27,7 @@
                 <h3 class="book__title">Ulysses</h3>
             </div>
             <h4 class="book__author">James Joyce</h4>
-            <a class="book__status book__status--unread">
+            <a class="book__status book__status--not-read">
                 <span class="book__pages">730 pp.</span>
                 <span class="book__isread book__isread--no">not read</span>
             </a>
@@ -51,18 +51,16 @@
                 <span class="book__pages">766 pp.</span>
                 <span class="book__isread book__isread--yes">read</span>
             </a>
-        </div>
-        <div class="book book--new">
-            <form>
-                <div class="book__header">
-                    <textarea class="book__title book__title--form" type="text" placeholder="Book Title"></textarea>
-                </div>
-                <input class="book__author book__author--form" type="text" placeholder="Author Name">
-                <div class="book__status book__status--form">
-                    <input class="book__pages book__pages--form" type="text" placeholder="Pages">
-                    <input class="book__isread book__isread--form" type="button" value="add">
-                </div>
-            </form>
+        </div> -->
+        <div class="book book--new" id="book-creator">
+            <div class="book__header">
+                <textarea class="book__title book__title--form" type="text" id="book-title" placeholder="Book Title"></textarea>
+            </div>
+            <input class="book__author book__author--form" type="text" id="book-author" placeholder="Author Name">
+            <div class="book__status book__status--form">
+                <input class="book__pages book__pages--form" type="text" id="book-pages" placeholder="Pages">
+                <input class="book__isread book__isread--form" type="button" value="add" onclick="addBookToLibrary()">
+            </div>
         </div>
     </div>
 </body>
