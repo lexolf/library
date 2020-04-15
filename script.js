@@ -121,4 +121,5 @@ function render(book) {
 for(i in preSet){
     var newBook = new Book(preSet[i].title, preSet[i].author, preSet[i].pages, preSet[i].read);
     render(newBook);
+    myLibrary.push(newBook);
 }
