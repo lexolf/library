@@ -1,6 +1,6 @@
 // My Library array
 
-myLibrary = [];
+var myLibrary = [];
 
 // Preexisting set of books
 
@@ -129,7 +129,7 @@ function render(book) {
 // Function for deleting books 
 function deleteBook(){
     var allBooks = Array.prototype.slice.call(document.getElementsByClassName('book'));
-    thisBookIndex = allBooks.indexOf(this.parentElement.parentElement);
+    var thisBookIndex = allBooks.indexOf(this.parentElement.parentElement);
     myLibrary.splice(thisBookIndex,1);
     document.getElementsByClassName('book')[thisBookIndex].remove();
 }
@@ -137,7 +137,7 @@ function deleteBook(){
 // Function for toggling read status of books 
 function toggleReadStatus(){
     var allBooks = Array.prototype.slice.call(document.getElementsByClassName('book'));
-    thisBookIndex = allBooks.indexOf(this.parentElement.parentElement);
+    var thisBookIndex = allBooks.indexOf(this.parentElement.parentElement);
     if(this.classList.contains("book__isread--yes")){
         this.textContent = "not read";
         this.className = "book__isread book__isread--no";
@@ -154,7 +154,7 @@ function toggleReadStatus(){
 
 // Render predefined set of books
 
-for(i in preSet){
+for(var i in preSet){
     var newBook = new Book(preSet[i].title, preSet[i].author, preSet[i].pages, preSet[i].read);
     render(newBook);
     myLibrary.push(newBook);
