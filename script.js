@@ -1,8 +1,8 @@
-// My Library 
+// My Library array
 
 myLibrary = [];
 
-// Preexisting set
+// Preexisting set of books
 
 let preSet = [
     {
@@ -80,6 +80,11 @@ function constructBookCard(book){
     bookTitle.className += "book__title"
     bookTitle.textContent = book.title;
     bookHeader.appendChild(bookTitle);
+    var bookDeleter = document.createElement("div");
+    bookDeleter.className += "book__deleter";
+    bookDeleter.textContent = "X";
+    bookDeleter.addEventListener("click", deleteBook, false);
+    bookHeader.appendChild(bookDeleter);
     var bookAuthor = document.createElement("h4");
     bookAuthor.className += "book__author";
     bookAuthor.textContent = book.author;
@@ -94,6 +99,7 @@ function constructBookCard(book){
     var bookIsRead = document.createElement("span");
     bookIsRead.className += "book__isread";
     bookIsRead.textContent = book.isRead;
+    bookIsRead.addEventListener("click", toggleReadStatus, false)
     bookStatus.appendChild(bookIsRead);
     if(book.isRead == "read"){
         bookCard.className += " book--read";
@@ -108,7 +114,7 @@ function constructBookCard(book){
     document.getElementById("library").insertBefore(bookCard, bookCreator);
 }
 
-// Display books cards on page
+// Render books cards on page
 
 function render(book) {
     if(book === undefined){
@@ -117,6 +123,34 @@ function render(book) {
         constructBookCard(book);
     }
 }
+
+// Function for deleting books 
+function deleteBook(){
+    var allBooks = Array.prototype.slice.call(document.getElementsByClassName('book'));
+    thisBookIndex = allBooks.indexOf(this.parentElement.parentElement);
+    myLibrary.splice(thisBookIndex,1);
+    document.getElementsByClassName('book')[thisBookIndex].remove();
+}
+
+// Function for toggling read status of books 
+function toggleReadStatus(){
+    var allBooks = Array.prototype.slice.call(document.getElementsByClassName('book'));
+    thisBookIndex = allBooks.indexOf(this.parentElement.parentElement);
+    if(this.classList.contains("book__isread--yes")){
+        this.textContent = "not read";
+        this.className = "book__isread book__isread--no";
+        this.parentElement.className = "book__status book__status--not-read";
+        this.parentElement.parentElement.className = "book book--not-read";
+    } else {
+        this.textContent = "read";
+        this.className = "book__isread book__isread--yes";
+        this.parentElement.className = "book__status book__status--read";
+        this.parentElement.parentElement.className = "book book--read";
+    }
+    myLibrary[thisBookIndex].isRead = this.textContent;
+}
+
+// Render predefined set of books
 
 for(i in preSet){
     var newBook = new Book(preSet[i].title, preSet[i].author, preSet[i].pages, preSet[i].read);
