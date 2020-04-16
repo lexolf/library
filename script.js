@@ -53,10 +53,12 @@ function addBookToLibrary() {
     var bookTitle = document.getElementById("book-title").value;
     var bookAuthor = document.getElementById("book-author").value;
     var bookPages = document.getElementById("book-pages").value;
-    var newBook = new Book(bookTitle, bookAuthor, bookPages, false);
-    myLibrary.push(newBook);
-    render(newBook)
-    resetForm();
+    if(bookTitle!="" && bookAuthor!="" && bookPages!=""){
+        var newBook = new Book(bookTitle, bookAuthor, bookPages, false);
+        myLibrary.push(newBook);
+        render(newBook)
+        resetForm();
+    }
 }
 
 // Clear form
@@ -94,7 +96,7 @@ function constructBookCard(book){
     bookCard.appendChild(bookStatus);
     var bookPages = document.createElement("span");
     bookPages.className += "book__pages";
-    bookPages.textContent = book.pages;
+    bookPages.textContent = book.pages + " pp.";
     bookStatus.appendChild(bookPages);
     var bookIsRead = document.createElement("span");
     bookIsRead.className += "book__isread";
