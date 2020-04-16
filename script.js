@@ -53,7 +53,7 @@ function addBookToLibrary() {
     var bookTitle = document.getElementById("book-title").value;
     var bookAuthor = document.getElementById("book-author").value;
     var bookPages = document.getElementById("book-pages").value;
-    if(bookTitle!="" && bookAuthor!="" && bookPages!=""){
+    if(bookTitle!="" && bookAuthor!="" && bookPages!="" && !isNaN(Number(bookPages))){
         var newBook = new Book(bookTitle, bookAuthor, bookPages, false);
         myLibrary.push(newBook);
         render(newBook)
