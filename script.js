@@ -33,17 +33,16 @@ let preSet = [
 
 // Create Book constructor
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    if(read){
-        this.isRead = "read";
-    } else {
-        this.isRead = "not read";
-    }
-    this.info = function() {
-        return title + " by " + author + ", " + pages + " pages, " + this.isRead(read)
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        if(read){
+            this.isRead = "read";
+        } else {
+            this.isRead = "not read";
+        }
     }
 }
 
